@@ -3,6 +3,8 @@ package net.qiujuer.genius.nettool;
 import java.io.IOException;
 import java.io.InputStream;
 
+import android.app.Activity;
+
 /**
  * Created by QiuJu
  * on 2014/9/20.

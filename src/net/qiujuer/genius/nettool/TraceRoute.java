@@ -341,9 +341,25 @@ public class TraceRoute extends NetModel {
         }
     }
 
+    public static String listToString(List<String> stringList){
+        if (stringList==null) {
+            return null;
+        }
+        StringBuilder result=new StringBuilder();
+        boolean flag=false;
+        for (String string : stringList) {
+            if (flag) {
+                result.append("\n");
+            }else {
+                flag=true;
+            }
+            result.append(string);
+        }
+        return result.toString();
+    }
     @Override
     public String toString() {
-        return "IP:" + ip + " Routes:" + (routes == null ? "[]" : routes.toString());
+        return "IP:" + ip + " Routes: \n" + (routes == null ? "[]" : listToString(routes));
        
     }
 }

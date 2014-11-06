@@ -9,6 +9,7 @@ import net.qiujuer.genius.app.UiModel;
 import net.qiujuer.genius.app.UiTool;
 import net.qiujuer.genius.command.Command;
 import net.qiujuer.genius.nettool.DnsResolve;
+import net.qiujuer.genius.nettool.Hardware;
 import net.qiujuer.genius.nettool.Ping;
 import net.qiujuer.genius.nettool.SpeedRoad;
 import net.qiujuer.genius.nettool.Telnet;
@@ -246,10 +247,18 @@ public class TestCaseActivity extends Activity {
      * 基本网络功能测试
      */
     public void testNetTool() {
+    	
+    	Hardware hardware = new Hardware(this);
+    	hardware.start();
+    	System.out.println(hardware.toString());
+    	
+    	/*
         //所有目标都可为IP地址
         Thread thread = new Thread() {
             @Override
 			public void run() {
+            	
+            	
                 //包数，包大小，目标，是否解析IP
                 Ping ping = new Ping(4, 32, domain, true);
                 ping.start();
@@ -271,9 +280,12 @@ public class TestCaseActivity extends Activity {
                 SpeedRoad speedRoad = new SpeedRoad("http://down.360safe.com/se/360se_setup.exe", 1024 * 32);
                 speedRoad.start();
                 Log.i(TAG, "下载速度：\n" + speedRoad.getSpeed());
+                
+            	
             }
         };
         thread.setDaemon(true);
         thread.start();
+        */
     }
 }
